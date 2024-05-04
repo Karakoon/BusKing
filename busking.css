@@ -10,8 +10,9 @@
 }
 
 @font-face {
-    font-family: 'TossFace';
-    src: url('/fonts/TossFace.ttf') format('truetype');
+    font-family: 'NotoEmoji';
+    src: url('/fonts/NotoEmoji.ttf') format('truetype');
+    font-weight: bold;
 }
 
 body {
@@ -29,7 +30,7 @@ main {
 }
 
 .emoji {
-    font-family: TossFace;
+    font-family: NotoEmoji;
 }
 
 .main_title {
