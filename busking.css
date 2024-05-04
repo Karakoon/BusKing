@@ -1,18 +1,18 @@
 @font-face {
     font-family: 'SUIT-Bold';
-    src: url('/fonts/SUIT-Bold.ttf') format('truetype');
+    src: url('./fonts/SUIT-Bold.ttf') format('truetype');
     font-style: normal;
 }
 
 @font-face {
     font-family: 'SUIT-Regular';
-    src: url('/fonts/SUIT-Regular.ttf') format('truetype');
+    src: url('./fonts/SUIT-Regular.ttf') format('truetype');
     font-style: normal;
 }
 
 @font-face {
     font-family: 'NotoEmoji';
-    src: url('/fonts/NotoEmoji.ttf') format('truetype');
+    src: url('./fonts/NotoEmoji.ttf') format('truetype');
     font-style: normal;
     font-weight: bold;
 }
