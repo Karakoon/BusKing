@@ -3,7 +3,8 @@
     <head>
         <title>BusKing</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="busking.css">
+        <link rel="stylesheet" href="./busking.css">
+        <script src="./busking.js"></script>
     </head>
     <body>
         <div class="main_title">
@@ -20,25 +21,33 @@
                     <div id="game_play" class="button">게임 시작</div>
                 </div>
             </div>
-            <div id="num_of_player" style="position: static; display: block;">
+            <div id="num_of_player" style="position: static; display: none;">
                 <h2>플레이 인원 수를 골라주세요.</h2>
                 <div class="button_container">
-                    <div id="how_to_play" class="button">
-                        <span class="emoji">🙋🙋🙋</span>
+                    <div id="three_players" class="button">
+                        <span class="emoji">🧍🧍🧍</span>
                     </div>
-                    <div id="game_play" class="button">
-                        <span class="emoji">🙋🙋🙋🙋</span>
+                    <div id="four_players" class="button">
+                        <span class="emoji">🧍🧍🧍🧍</span>
                     </div>
                 </div>
             </div>
-            <div id="choose_hand_card" style="position: static; left: 0px; display: none;">
+            <div id="choose_hand_card" style="position: static; left: 0px; display: block;">
                 <h2>원하는 족보 카드를 골라주세요.</h2>
                 <div class="card_container">
                     <div class="card">
             
                     </div>
                     <div class="card">
-            
+
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px">이것은 카드 설명 예시문입니다. 만약에 카드 설명을 하게 되면 이런 식으로 보이게 됩니다.</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name2" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                 </div>
             </div>
