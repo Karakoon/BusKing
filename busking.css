@@ -25,9 +25,9 @@ body {
 main {
     display: flex;
     position: fixed;
-    height: 50%;
+    height: 100%;
     width: 100%;
-    top: 35%;
+    align-items: center;
     justify-content: center;
     font-size: 36px;
 }
@@ -66,12 +66,37 @@ main {
     justify-content: center;
 }
 
-.card_container {
+.card_choice {
     display: grid;
-    grid-template-columns: 360px 360px;
-    grid-template-rows: 512px auto;
+    grid-template-columns: 336px 336px;
+    grid-template-rows: 560px auto;
+    column-gap: 24px;
+    align-items: start;
+    justify-content: center;
+}
+
+.card_three_players {
+    display: grid;
+    grid-template-columns: 336px 336px 336px 336px;
+    grid-template-rows: 560px auto;
+    column-gap: 24px;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+}
+
+.card_four_players {
+    display: grid;
+    grid-template-columns: repeat(5, 360px);
+    grid-template-rows: 560px auto;
+    column-gap: 24px;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
 }
 
 .card {

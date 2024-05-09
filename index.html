@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="./busking.css">
         <script src="./busking.js"></script>
     </head>
-    <body onclick="fullscreen();">
-        <div class="main_title">
+    <body>
+        <div class="main_title" style="display: block;">
             <h1>
                 <span class="emoji" style="color: gold">👑</span>
                 BusKing
@@ -15,43 +15,110 @@
             </h1>
         </div>
         <main>
-            <div id="title_screen" style="position: static; display: none;">
+            <div id="title_screen" style="position: static; display: block;">
                 <div class="button_container">
                     <div id="how_to_play" class="button">게임 방법</div>
-                    <div id="game_play" class="button">게임 시작</div>
+                    <div id="game_play" class="button" onclick="loadPlayerChoiceScreen();">게임 시작</div>
                 </div>
             </div>
-            <div id="num_of_player" style="position: static; display: none;">
+            <div id="player_choice_screen" style="position: static; display: none;">
                 <h2>플레이 인원 수를 골라주세요.</h2>
                 <div class="button_container">
-                    <div id="three_players" class="button">
+                    <div id="three_players" class="button" onclick="setPlayerNum(3);">
                         <span class="emoji">🧍🧍🧍</span>
                     </div>
-                    <div id="four_players" class="button">
+                    <div id="four_players" class="button" onclick="setPlayerNum(4);">
                         <span class="emoji">🧍🧍🧍🧍</span>
                     </div>
                 </div>
             </div>
-            <div id="choose_hand_card" style="position: static; left: 0px; display: block;">
+            <div id="card_choice_screen" style="position: static; left: 0px; display: none;">
                 <h2>원하는 족보 카드를 골라주세요.</h2>
-                <div class="card_container">
-                    <div class="card">
-            
+                <div class="card_choice">
+                    <div class="card" onclick="selectCard(0);">
+                        아무거나
                     </div>
-                    <div class="card">
-
+                    <div class="card" onclick="selectCard(1);">
+                        로렘입숨
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px">숫자가 클수록 강합니다. 하트 1을 가진 사람이 선 플레이어입니다.</span>
                     </div>
                     <div class="card_text">
                         <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px">이것은 카드 설명 예시문입니다. 만약에 카드 설명을 하게 되면 이런 식으로 보이게 됩니다.</span>
+                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                </div>
+            </div>
+            <div id="final_screen" style="position: static; left: 0px; display: none;">
+                <div class="card_three_players" style="display: grid">
+                    <div class="card">
+
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
                         <h3 id="card_name2" style="margin-bottom: 12px;">카드 이름</h3>
                         <span id="card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
+                    <div class="card_text">
+                        <h3 id="card_name3" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
                 </div>
-            </div>
-            <div id="final_screen" style="position: static; left: 0px; display: none;">
+                <div class="card_four_players" style="display: none">
+                    <div class="card">
+
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card">
+                    
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name2" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name3" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                    <div class="card_text">
+                        <h3 id="card_name4" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="card_text4" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                    </div>
+                </div>
             </div>
         </main>
     </body>
