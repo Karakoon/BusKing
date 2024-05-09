@@ -1,8 +1,8 @@
 let playerNum = 0;
-let curPlayer = 0;
-let cards = [];
+let curPlayer = 1;
 let cardName = [];
 let cardText = [];
+let generatedCards = [];
 let chosenCards = [];
 let discardedCards = [];
 
@@ -53,11 +53,36 @@ function fullscreen() {
 }
 
 function loadPlayerChoiceScreen() {
-    let titleScreen = document.getElementById("title_screen");
-    let playerChoiceScreen = document.getElementById("player_choice_screen");
+    document.getElementById("title_screen").style.display = "none";
+    document.getElementById("player_choice_screen").style.display = "block";
+}
 
-    titleScreen.style.display = "none";
-    playerChoiceScreen.style.display = "block";
+function loadCardChoiceScreen() {
+    document.getElementById("player_choice_screen").style.display = "none";
+    document.getElementById("card_choice_screen").style.display = "block";
+}
+
+function loadFinalScreen() {
+    let i;
+    document.getElementById("title").style.display = "none";
+    document.getElementById("card_choice_screen").style.display = "none";
+    document.getElementById("final_screen").style.display = "block";
+
+    if (playerNum == 3) {
+        document.getElementById("card_three_players").style.display = "grid";
+        generateRandomSingleCard();
+        for (i = 0; i <= playerNum; i++) {
+            document.getElementById("card_name" + i).textContent = cardName[chosenCards[i]];
+            document.getElementById("card_text" + i).textContent = cardText[chosenCards[i]];
+        }
+    } else if (playerNum == 4) {
+        document.getElementById("card_four_players").style.display = "grid";
+        generateRandomSingleCard();
+        for (i = 0; i <= playerNum; i++) {
+            document.getElementById("four_card_name" + i).textContent = cardName[chosenCards[i]];
+            document.getElementById("four_card_text" + i).textContent = cardText[chosenCards[i]];
+        }
+    }
 }
 
 function setPlayerNum(num) {
@@ -67,27 +92,19 @@ function setPlayerNum(num) {
     generateRandomCards();
 }
 
-function loadCardChoiceScreen() {
-    let playerChoiceScreen = document.getElementById("player_choice_screen");
-    let cardChoiceScreen = document.getElementById("card_choice_screen");
-
-    playerChoiceScreen.style.display = "none";
-    cardChoiceScreen.style.display = "block";
-}
-
 function generateRandomCards() {
     let i;
 
-    if (curPlayer < playerNum) {
+    if (curPlayer <= playerNum) {
         let j;
         let repeated;
 
         while (true) {
-            cards[0] = Math.floor(Math.random() * 15) + 3;
+            generatedCards[0] = Math.floor(Math.random() * 15) + 3;
             repeated = false;
 
-            for (j = 0; j < chosenCards.length; j++) {
-                if (chosenCards[j] == cards[0] || discardedCards[j] == cards[0]) {
+            for (j = 1; j < chosenCards.length; j++) {
+                if (chosenCards[j] == generatedCards[0] || discardedCards[j] == generatedCards[0]) {
                     repeated = true;
                 }
             }
@@ -97,11 +114,11 @@ function generateRandomCards() {
         }
 
         while (true) {
-            cards[1] = Math.floor(Math.random() * 15) + 3;
+            generatedCards[1] = Math.floor(Math.random() * 15) + 3;
             repeated = false;
             
-            for (j = 0; j < chosenCards.length; j++) {
-                if (chosenCards[j] == cards[1] || discardedCards[j] == cards[1] || cards[0] == cards[1]) {
+            for (j = 1; j < chosenCards.length; j++) {
+                if (chosenCards[j] == generatedCards[1] || discardedCards[j] == generatedCards[1] || generatedCards[0] == generatedCards[1]) {
                     repeated = true;
                 }
             }
@@ -110,22 +127,26 @@ function generateRandomCards() {
             }
         }
 
-        document.getElementById("card_name0").textContent = cardName[cards[0]];
-        document.getElementById("card_text0").textContent = cardText[cards[0]];
-        document.getElementById("card_name1").textContent = cardName[cards[1]];
-        document.getElementById("card_text1").textContent = cardText[cards[1]];
+        document.getElementById("gen_card_name0").textContent = cardName[generatedCards[0]];
+        document.getElementById("gen_card_text0").textContent = cardText[generatedCards[0]];
+        document.getElementById("gen_card_name1").textContent = cardName[generatedCards[1]];
+        document.getElementById("gen_card_text1").textContent = cardText[generatedCards[1]];
     } else {
-
+        loadFinalScreen();
     }
+}
+
+function generateRandomSingleCard() {
+    chosenCards[0] = Math.floor(Math.random() * 3);    
 }
 
 function selectCard(num) {
     if (num == 0) {
-        chosenCards[curPlayer] = cards[0];
-        discardedCards[curPlayer] = cards[1];
+        chosenCards[curPlayer] = generatedCards[0];
+        discardedCards[curPlayer] = generatedCards[1];
     } else {
-        chosenCards[curPlayer] = cards[1];
-        discardedCards[curPlayer] = cards[0];
+        chosenCards[curPlayer] = generatedCards[1];
+        discardedCards[curPlayer] = generatedCards[0];
     }
     curPlayer += 1;
     generateRandomCards();

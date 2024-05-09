@@ -7,7 +7,7 @@
         <script src="./busking.js"></script>
     </head>
     <body>
-        <div class="main_title" style="display: block;">
+        <div id="title" class="main_title" style="display: block;">
             <h1>
                 <span class="emoji" style="color: gold">👑</span>
                 BusKing
@@ -42,17 +42,17 @@
                         로렘입숨
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px">숫자가 클수록 강합니다. 하트 1을 가진 사람이 선 플레이어입니다.</span>
+                        <h3 id="gen_card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="gen_card_text0" style="padding-left: 24px; padding-right: 24px">숫자가 클수록 강합니다. 하트 1을 가진 사람이 선 플레이어입니다.</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="gen_card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="gen_card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                 </div>
             </div>
             <div id="final_screen" style="position: static; left: 0px; display: none;">
-                <div class="card_three_players" style="display: grid">
+                <div id="card_three_players" class="card_three_players" style="display: none">
                     <div class="card">
 
                     </div>
@@ -66,23 +66,23 @@
                     
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="three_card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="three_card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="three_card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="three_card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name2" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="three_card_name2" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="three_card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name3" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="three_card_name3" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="three_card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                 </div>
-                <div class="card_four_players" style="display: none">
+                <div id="card_four_players" class="card_four_players" style="display: none">
                     <div class="card">
 
                     </div>
@@ -99,24 +99,24 @@
                     
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name0" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="four_card_name0" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="four_card_text0" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name1" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="four_card_name1" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="four_card_text1" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name2" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="four_card_name2" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="four_card_text2" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name3" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="four_card_name3" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="four_card_text3" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                     <div class="card_text">
-                        <h3 id="card_name4" style="margin-bottom: 12px;">카드 이름</h3>
-                        <span id="card_text4" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
+                        <h3 id="four_card_name4" style="margin-bottom: 12px;">카드 이름</h3>
+                        <span id="four_card_text4" style="padding-left: 24px; padding-right: 24px;">카드 설명</span>
                     </div>
                 </div>
             </div>
