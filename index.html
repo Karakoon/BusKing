@@ -8,7 +8,7 @@
         <script src="./busking.js"></script>
     </head>
     <body onclick="fullscreen();">
-        <div id="title" class="main_title" style="display: block;">
+        <div id="title" class="main_title" style="display: none;">
             <h1>
                 <span class="emoji" style="color: gold">👑</span>
                 BusKing
@@ -16,7 +16,7 @@
             </h1>
         </div>
         <main>
-            <div id="title_screen" style="position: static; display: none;">
+            <div id="title_screen" style="position: static; display: block;">
                 <div class="button_container">
                     <div id="how_to_play" class="button">게임 방법</div>
                     <div id="game_play" class="button" onclick="loadPlayerChoiceScreen();">게임 시작</div>
@@ -33,13 +33,13 @@
                     </div>
                 </div>
             </div>
-            <div id="card_choice_screen" style="position: static; left: 0px; display: block;">
+            <div id="card_choice_screen" style="position: static; left: 0px; display: none;">
                 <h2>원하는 족보 카드를 골라주세요.</h2>
                 <div class="card_choice">
-                    <div class="card" onclick="selectCard(0);">
+                    <div class="card_2x" onclick="selectCard(0);">
                         아무거나
                     </div>
-                    <div class="card" onclick="selectCard(1);">
+                    <div class="card_2x" onclick="selectCard(1);">
                         로렘입숨
                     </div>
                     <div class="card_text">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div id="final_screen" style="position: static; left: 0px; display: none;">
+            <div id="final_screen" style="position: static; left: 0px; display: block;">
                 <div id="card_three_players" class="card_three_players" style="display: none">
                     <div class="card">
 
