@@ -25,9 +25,9 @@ cardName[15] = "스몰";
 cardName[16] = "미디움";
 cardName[17] = "라지";
 
-cardText[0] = "숫자가 클수록 강합니다. 하트 1을 가진 사람이 선 플레이어입니다.";
-cardText[1] = "숫자가 작을수록 강합니다. 스페이드 13을 가진 사람이 선 플레이어입니다.";
-cardText[2] = "첫 장은 자유롭게 냅니다. 앞 사람이 낸 카드와 숫자가 같은 카드나 문양이 같으면서 차이가 1인 숫자 카드만 낼 수 있습니다. 다이아몬드 7을 가진 사람이 선 플레이어입니다.";
+cardText[0] = "숫자가 클수록 강합니다. 다이아몬드 1이 선입니다.";
+cardText[1] = "숫자가 작을수록 강합니다. 스페이드 13이 선입니다.";
+cardText[2] = "첫 장은 자유. 앞 카드와 숫자가 같은 카드나 문양이 같고 숫자 차이가 1인 카드만 낼 수 있습니다. 하트 7이 선입니다.";
 cardText[3] = "같은 숫자인 카드 2장을 냅니다. 숫자가 클수록 강합니다.";
 cardText[4] = "같은 문양인 카드 2장을 냅니다. 숫자 합이 작을수록 강합니다.";
 cardText[5] = "숫자 차이가 1인 카드 2장을 냅니다. 숫자가 클수록 강합니다.";
@@ -72,8 +72,8 @@ function loadFinalScreen() {
         document.getElementById("card_three_players").style.display = "grid";
         generateRandomSingleCard();
         for (i = 0; i <= playerNum; i++) {
-            document.getElementById("card_name" + i).textContent = cardName[chosenCards[i]];
-            document.getElementById("card_text" + i).textContent = cardText[chosenCards[i]];
+            document.getElementById("three_card_name" + i).textContent = cardName[chosenCards[i]];
+            document.getElementById("three_card_text" + i).textContent = cardText[chosenCards[i]];
         }
     } else if (playerNum == 4) {
         document.getElementById("card_four_players").style.display = "grid";
@@ -117,8 +117,9 @@ function generateRandomCards() {
             generatedCards[1] = Math.floor(Math.random() * 15) + 3;
             repeated = false;
             
+            if (generatedCards[0] == generatedCards[1]) continue;
             for (j = 1; j < chosenCards.length; j++) {
-                if (chosenCards[j] == generatedCards[1] || discardedCards[j] == generatedCards[1] || generatedCards[0] == generatedCards[1]) {
+                if (chosenCards[j] == generatedCards[1] || discardedCards[j] == generatedCards[1]) {
                     repeated = true;
                 }
             }
