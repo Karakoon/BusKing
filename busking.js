@@ -170,5 +170,5 @@ function selectCard(num) {
 function loadCardData(target, index, id) {
     document.getElementById(target + "_name" + index).textContent = cardName[id];
     document.getElementById(target + "_text" + index).textContent = cardText[id];
-    document.getElementById(target + "_img" + index).src = "/res/" + cardImg[id] + ".png";
+    document.getElementById(target + "_img" + index).src = "./res/" + cardImg[id] + ".png";
 }
