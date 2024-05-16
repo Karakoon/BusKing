@@ -2,6 +2,7 @@ let playerNum = 0;
 let curPlayer = 1;
 let cardName = [];
 let cardText = [];
+let cardImg = [];
 let generatedCards = [];
 let chosenCards = [];
 let discardedCards = [];
@@ -44,6 +45,25 @@ cardText[15] = "1 이상 4 이하인 카드들을 냅니다. 2장으로 시작�
 cardText[16] = "5 이상 9 이하인 카드들을 냅니다. 2장으로 시작해 앞 사람보다 1장 더 많이 내야 합니다.";
 cardText[17] = "10 이상 13 이하인 카드들을 냅니다. 2장으로 시작해 앞 사람보다 1장 더 많이 내야 합니다.";
 
+cardImg[0] = "High";
+cardImg[1] = "Low";
+cardImg[2] = "Chain";
+cardImg[3] = "Double";
+cardImg[4] = "Duo";
+cardImg[5] = "Next";
+cardImg[6] = "Wide";
+cardImg[7] = "Triple";
+cardImg[8] = "Trio";
+cardImg[9] = "Sequence";
+cardImg[10] = "Colorful4";
+cardImg[11] = "Doubles";
+cardImg[12] = "Quartet";
+cardImg[13] = "Full House";
+cardImg[14] = "Flush";
+cardImg[15] = "Small";
+cardImg[16] = "Medium";
+cardImg[17] = "Large";
+
 function fullscreen() {
     let doc = document.documentElement;
     if (doc.requestFullscreen) doc.requestFullscreen();
@@ -63,24 +83,23 @@ function loadCardChoiceScreen() {
 }
 
 function loadFinalScreen() {
-    let i;
     document.getElementById("title").style.display = "none";
     document.getElementById("card_choice_screen").style.display = "none";
     document.getElementById("final_screen").style.display = "block";
 
     if (playerNum == 3) {
+        cardImg[10] = "Colorful3";
         document.getElementById("card_three_players").style.display = "grid";
         generateRandomSingleCard();
-        for (i = 0; i <= playerNum; i++) {
-            document.getElementById("three_card_name" + i).textContent = cardName[chosenCards[i]];
-            document.getElementById("three_card_text" + i).textContent = cardText[chosenCards[i]];
+        for (let i = 0; i <= playerNum; i++) {
+            loadCardData("three_card", i, chosenCards[i]);
         }
     } else if (playerNum == 4) {
+        cardImg[10] = "Colorful4";
         document.getElementById("card_four_players").style.display = "grid";
         generateRandomSingleCard();
-        for (i = 0; i <= playerNum; i++) {
-            document.getElementById("four_card_name" + i).textContent = cardName[chosenCards[i]];
-            document.getElementById("four_card_text" + i).textContent = cardText[chosenCards[i]];
+        for (let i = 0; i <= playerNum; i++) {
+            loadCardData("four_card", i, chosenCards[i]);
         }
     }
 }
@@ -93,18 +112,15 @@ function setPlayerNum(num) {
 }
 
 function generateRandomCards() {
-    let i;
-
     if (curPlayer <= playerNum) {
-        let j;
         let repeated;
 
         while (true) {
             generatedCards[0] = Math.floor(Math.random() * 15) + 3;
             repeated = false;
 
-            for (j = 1; j < chosenCards.length; j++) {
-                if (chosenCards[j] == generatedCards[0] || discardedCards[j] == generatedCards[0]) {
+            for (let i = 1; i < chosenCards.length; i++) {
+                if (chosenCards[i] == generatedCards[0] || discardedCards[i] == generatedCards[0]) {
                     repeated = true;
                 }
             }
@@ -118,8 +134,8 @@ function generateRandomCards() {
             repeated = false;
             
             if (generatedCards[0] == generatedCards[1]) continue;
-            for (j = 1; j < chosenCards.length; j++) {
-                if (chosenCards[j] == generatedCards[1] || discardedCards[j] == generatedCards[1]) {
+            for (let i = 1; i < chosenCards.length; i++) {
+                if (chosenCards[i] == generatedCards[1] || discardedCards[i] == generatedCards[1]) {
                     repeated = true;
                 }
             }
@@ -128,10 +144,8 @@ function generateRandomCards() {
             }
         }
 
-        document.getElementById("gen_card_name0").textContent = cardName[generatedCards[0]];
-        document.getElementById("gen_card_text0").textContent = cardText[generatedCards[0]];
-        document.getElementById("gen_card_name1").textContent = cardName[generatedCards[1]];
-        document.getElementById("gen_card_text1").textContent = cardText[generatedCards[1]];
+        loadCardData("gen_card", 0, generatedCards[0]);
+        loadCardData("gen_card", 1, generatedCards[1]);
     } else {
         loadFinalScreen();
     }
@@ -151,4 +165,10 @@ function selectCard(num) {
     }
     curPlayer += 1;
     generateRandomCards();
+}
+
+function loadCardData(target, index, id) {
+    document.getElementById(target + "_name" + index).textContent = cardName[id];
+    document.getElementById(target + "_text" + index).textContent = cardText[id];
+    document.getElementById(target + "_img" + index).src = "/res/" + cardImg[id] + ".png";
 }
